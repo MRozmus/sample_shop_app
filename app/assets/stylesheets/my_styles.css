@@ -1,6 +1,8 @@
 .footer {
-    min-width: 100%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: #f8f9fa;
-    height: 2rem;
+    height: 1.3rem;
     text-align: center;
 }
