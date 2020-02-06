@@ -1,11 +1,5 @@
 <% content_for(:title, "Shop") %>
 
-<% if flash[:notice] %>
-  <div class="alert alert-success" role="alert">
-    <p><%= flash[:notice] %></p>
-  </div>
-<% end %>
-
 <h1>Products:</h1>
 <%= link_to 'Sort by date', sorted_products_path("updated_at DESC") %> |
 <%= link_to 'Sort by name', sorted_products_path("name") %> |
@@ -24,12 +18,14 @@
       <div class="card-footer">
         <%= link_to "Show", product_path(product.id), :class => "btn btn-primary btn-block"%>
       </div>
+      <% if admin_signed_in? %>
       <div class="card-footer">
         <%= link_to "Edit", edit_product_path(product.id), :class => "btn btn-secondary btn-block"%>
       </div>
       <div class="card-footer">
         <%= link_to "Delete", product_path(product.id), :class => "btn btn-danger btn-block", data: { method: :delete, confirm: "Did you want to delete #{product.name}? "} %>
       </div>
+      <% end %>
     </div>
   <% end %>
 </div>
